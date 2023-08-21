@@ -19,27 +19,3 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn clean install
-
-  deploy:
-    name: Deploy to Server
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-
-      - name: Build and Package
-        run: mvn clean package
-
-      - name: Deploy to Server
-        # Add your deployment commands here
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
