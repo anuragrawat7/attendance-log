@@ -21,8 +21,6 @@ jobs:
         run: mvn clean install
 
       - name: Copy jar file to server
-        # You may pin to the exact commit or the version.
-        # uses: kostya-ten/ssh-server-deploy@e0deb814bc458a68b61f6597a865d096e33eb586
         uses: garygrossgarten/github-action-scp@release
         with:
           local: './target/AttendanceLog.jar'
@@ -32,14 +30,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           
-      - name: Deploy
-        if: always()
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd /home/attendancelog && java -jar AttendanceLog.jar &
-          host: ${{ secrets.HOST }}
-          port: 22
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
-          args: "-tt"  
+      - name: Run jar file
+        run: cd /home/attendancelog && java -jar AttendanceLog.jar &    
+          
