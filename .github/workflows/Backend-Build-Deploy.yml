@@ -39,6 +39,7 @@ jobs:
           command: |
             cd /home/attendancelog && java -jar AttendanceLog.jar &
           host: ${{ secrets.HOST }}
+          port: 22
           user: ${{ secrets.USERNAME }}
           pass: ${{ secrets.PASSWORD }}
           args: "-tt"  
