@@ -31,5 +31,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           
       - name: Run jar file
-        run: cd /home/attendancelog && java -jar AttendanceLog.jar &    
+        run: java -jar /home/attendancelog/AttendanceLog.jar &    
           
