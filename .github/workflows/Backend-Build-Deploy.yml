@@ -34,7 +34,7 @@ jobs:
         if: always()
         uses: fifsky/ssh-action@master
         with:
-          command: cd /home/attendance_log && java -jar AttendanceLog.jar -xms200M -xmx768M &
+          command: java -jar /home/attendance_log/AttendanceLog.jar -xms200M -xmx768M &
           host: ${{ secrets.HOST }}
           port: 22
           user: ${{ secrets.USERNAME }}
