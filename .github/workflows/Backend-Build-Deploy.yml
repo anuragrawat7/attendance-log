@@ -25,7 +25,7 @@ jobs:
         # uses: kostya-ten/ssh-server-deploy@e0deb814bc458a68b61f6597a865d096e33eb586
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: './target/AttendanceLog.jar'
+          local: './target/attendancelog-0.0.1-SNAPSHOT.jar'
           remote: '/home/attendance_log/'
           host: ${{ secrets.HOST }}
           port: 22
