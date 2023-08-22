@@ -31,5 +31,10 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           
       - name: Run jar file
-        run: java -jar /home/attendancelog/AttendanceLog.jar &    
+        env:
+           host: ${{ secrets.HOST }}
+           port: 22
+           username: ${{ secrets.USERNAME }}
+           password: ${{ secrets.PASSWORD }}
+        run: java -jar /home/attendancelog/AttendanceLog.jar &         
           
